@@ -1,0 +1,11 @@
+Package: randomRtools
+Title: Random tools
+Version: 0.1
+Authors@R: person("First", "Last", email = "first.last@example.com",
+                  role = c("aut", "cre"))
+Description: Miscellaneous collection of functions which I sometimes need
+Depends: R (>= 4.0.1)
+License: No License
+    LazyData: true
+Encoding: UTF-8
+RoxygenNote: 7.1.1
