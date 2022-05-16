@@ -1,6 +1,7 @@
 #' Produces a contingency table from all provided columns
 #' and outputs a kableExtra object for the table 
 #' @import tidyverse
+#' @import kableExtra
 #' @export
 
 kable_contingency = function(x) {

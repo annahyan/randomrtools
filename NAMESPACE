@@ -3,4 +3,5 @@
 export(kable_contingency)
 export(make_names_AH)
 export(pathway_gene_list)
+import(kableExtra)
 import(tidyverse)
