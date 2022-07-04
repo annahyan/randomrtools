@@ -2,3 +2,4 @@
 
 export(make_names_AH)
 export(pathway_gene_list)
+export(retrieve_GO_gene_list)
