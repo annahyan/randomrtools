@@ -23,7 +23,7 @@ retrieve_GO_gene_list = function(GOquery, gene.format = "SYMBOL") {
     entrez.genes = AnnotationDbi::get(go.id, org.Hs.egGO2ALLEGS)
 
     if (gene.format == "ENTREZ") {
-        return(entrez.genes)
+        return(unique(entrez.genes))
     } else if (gene.format == "SYMBOL") {
 
         gene.symbol = AnnotationDbi::select(org.Hs.eg.db,
