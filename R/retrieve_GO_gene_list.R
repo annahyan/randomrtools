@@ -4,7 +4,7 @@
 #' entrez genes or gene symbols.
 #' 
 #' @param GOquery GO id or the name of GO
-#' @param gene.format output format: ENTREZ or SYMBOL. default: SYMBOL
+#' @param gene.format output format: ENTREZ or SYMBOL or ENSEMBL. default: SYMBOL
 #' 
 #' @export
 
@@ -24,14 +24,20 @@ retrieve_GO_gene_list = function(GOquery, gene.format = "SYMBOL") {
 
     if (gene.format == "ENTREZ") {
         return(entrez.genes)
+    } else if (gene.format == "SYMBOL") {
+
+        gene.symbol = AnnotationDbi::select(org.Hs.eg.db,
+                                            keys = entrez.genes, columns = c("SYMBOL"))
+        return(gene.symbol$SYMBOL%>% unique() %>% na.omit())
+
+    } else if (gene.format == "ENSEMBL") {
+
+        gene.ensembl = AnnotationDbi::select(org.Hs.eg.db,
+                                             keys = entrez.genes, columns = c("ENSEMBL"))
+        return(gene.ensembl$ENSEMBL %>% unique() %>% na.omit())
+
     } else {
-        if (gene.format == "SYMBOL") {
-            gene.symbol = AnnotationDbi::select(org.Hs.eg.db,
-                                                keys = entrez.genes, columns = c("SYMBOL"))
-            return(gene.symbol$SYMBOL)
-        } else {
-            stop("Gene Format should be either ENTREZ or SYMBOL")
-        }
+        stop("Gene Format should be either ENTREZ or SYMBOL or ENSEMBL.")
     }
 }
 

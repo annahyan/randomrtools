@@ -4,12 +4,12 @@
 \alias{retrieve_GO_gene_list}
 \title{Retrieve genes from GO term in human}
 \usage{
-retrieve_GO_gene_list(GO_query, gene_format = "SYMBOL")
+retrieve_GO_gene_list(GOquery, gene.format = "SYMBOL")
 }
 \arguments{
-\item{GO_query}{GO id or the name of GO}
+\item{GOquery}{GO id or the name of GO}
 
-\item{gene_format}{output format: ENTREZ or SYMBOL. default: SYMBOL}
+\item{gene.format}{output format: ENTREZ or SYMBOL or ENSEMBL. default: SYMBOL}
 }
 \description{
 The function retrieves all genes from GO term and returns either as
